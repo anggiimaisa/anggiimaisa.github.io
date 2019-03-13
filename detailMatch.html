@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Football Match</title>
+    <meta name="description" content="Football" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/materialize.min.css" />
+    <link rel="stylesheet" href="css/materialize.css">
+    <link rel="manifest" href="/manifest.json" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <meta name="theme-color" content="#00897B" />
+    <style>
+    
+      #body-content{
+        padding: 16px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <!-- Navigasi -->
+    <nav class="black" role="navigation">
+        <div class="nav-wrapper container">
+            <a href="#" class="brand-logo" id="logo-container">
+                Football Match
+            </a>
+            <a href="./index.html" class="sidenav-trigger" data-target="nav-mobile">
+                <i class="material-icons">arrow_back</i>    
+            </a>
+
+            <ul class="topnav right hide-on-med-and-down"></ul>
+            <ul class="sidenav" id="nav-mobile"></ul>
+        </div>
+    </nav>
+    <!-- Akhir Navigasi -->
+
+    <div class="container" id="body-content">
+    </div>
+
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large red" id="save">
+            <i class="large material-icons">save</i>
+        </a>
+    </div>
+
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large red" id="delete">
+            <i class="large material-icons">delete</i>
+        </a>
+    </div>
+
+    <script src="js/materialize.min.js"></script>
+    <script src="js/idb.js"></script>    
+    <script src="js/db.js"></script>
+    <script src="js/api.js"></script>
+    
+    
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        var urlParams = new URLSearchParams(window.location.search);
+        var isFromSaved = urlParams.get("saved");
+        var idMatch = urlParams.get("id");
+        var save = document.getElementById("save");
+        var deleted = document.getElementById("delete");
+        
+        if (isFromSaved) {
+          save.style.display = 'none';
+          deleted.style.display = 'block';
+
+          deleted.onclick = function () {
+            deleteMatchById(idMatch);
+            window.location.href = "/";
+          }
+
+          getSavedMatchById();
+
+        } else {
+          deleted.style.display = 'none';
+          save.style.display = 'block';
+
+          var item = getMatchDetailById();
+
+          save.onclick = function() {
+            console.log("Tombol FAB di klik.");
+            item.then(function(matches) {
+              
+              saveMatch(matches);
+              save.style.display = 'none';
+            });
+          };
+        }
+      });   
+    </script>
+  </body>
+</html>

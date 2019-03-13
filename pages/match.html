@@ -1,0 +1,65 @@
+<h2 id="title">Match</h2>
+<div class="row">
+    <div class="col s12 m7" id="listMatch">
+		</div>
+</div>
+
+<script>
+
+    /*
+
+    var base_url = "https://api.football-data.org/";
+
+    debugger;
+    // Blok kode yang akan di panggil jika fetch berhasil
+    function status(response) {
+      if (response.status !== 200) {
+        console.log("Error Status : " + response.status);
+        // Method reject() akan membuat blok catch terpanggil
+        return Promise.reject(new Error(response.statusText));
+      } else {  
+        // Mengubah suatu objek menjadi Promise agar bisa "di-then-kan"
+        return Promise.resolve(response);
+      }
+    }
+
+    // Blok kode untuk memparsing json menjadi array JavaScript
+    function json(response) {
+      return response.json();
+    }
+
+    // Blok kode untuk meng-handle kesalahan di blok catch
+    function error(err) {
+      // Parameter error berasal dari Promise.reject()
+      console.log("Error : " + errx);
+    } 
+  
+    fetch(base_url + "v2/competitions/CL/matches", {
+        method: 'GET',  
+        headers: {
+          'X-Auth-Token': '4e67a556265640918adf7a592612f134'
+        }
+    })
+      .then(status)
+      .then(json)
+      .then(function(data){
+        var titlePage = data.competition.name;
+        var listMatchHTML = "";
+
+        data.matches.forEach(function(match){
+          listMatchHTML += `<div class="divider"></div>
+                                        <div class="section">
+                                            <h5>${match.awayTeam.name} <b>vs</b> ${match.homeTeam.name}</h5>
+                                            <p>Status: ${match.status}</p>
+                                            <p>Stage: ${match.stage}</p>
+                                            <a class="waves-effect waves-light btn" href="./detailMatch.html?id=${match.id}">Detail Match</a>
+                                        </div>`;
+        });
+
+        document.getElementById("title").innerHTML = titlePage;
+        document.getElementById("listMatch").innerHTML = listMatchHTML;
+    })
+    .catch(error);
+    
+    */
+</script>

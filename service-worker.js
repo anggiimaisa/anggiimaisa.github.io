@@ -43,7 +43,7 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
-    new RegExp('https://fonts.googleapis.com/icon?family=Material+Icons'),
+    new RegExp("https://fonts.googleapis.com/icon?family=Material+Icons"),
     workbox.strategies.staleWhileRevalidate()
 );
 

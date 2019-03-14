@@ -38,7 +38,7 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
-    new RegExp('/detailMatch.html?id=/'),
+    new RegExp('/'),
     workbox.strategies.staleWhileRevalidate()
 );
 

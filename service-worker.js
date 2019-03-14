@@ -37,6 +37,11 @@ workbox.routing.registerRoute(
     workbox.strategies.staleWhileRevalidate()
 );
 
+workbox.routing.registerRoute(
+    new RegExp('/detailMatch.html?id=/'),
+    workbox.strategies.staleWhileRevalidate()
+);
+
 self.addEventListener('push', function(event) {
     var body;
     if (event.data) {
